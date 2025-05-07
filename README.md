@@ -98,3 +98,5 @@ Feel free to reach out if you need admin login details or any other information.
   - Returns a success message or status code (e.g. `204 No Content`) if the deletion is successful.
   - Returns an error if the project does not exist or cannot be deleted.
 \
+
+this is **bold** text
