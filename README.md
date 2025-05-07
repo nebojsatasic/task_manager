@@ -57,3 +57,44 @@ Email: [nele.tasic@gmail.com](nele.tasic@gmail.com)
 Website: [https://nebojsatasic.com](https://nebojsatasic.com)
 
 Feel free to reach out if you need admin login details or any other information.
+
+- **GET `/projects`**  
+  Description: Get a list of all projects.  
+
+  Optional query parameters:
+  - `include=tasks`: Include each project's tasks.
+  - `include=members`: Include each project's members.
+  - You can use both like: `/projects?include=tasks,members`
+
+- **GET `/projects/{project}`**  
+  Description: Get a single project by its ID. The response always includes the project's tasks and members.
+
+  Path parameters:
+  - `{project}`: The numeric ID of the project.  
+    Example: `/projects/123`
+
+- **POST `/projects`**  
+  Description: Create a new project.
+
+  Required fields (in request body):
+  - `title` (string): The title of the project.  
+    Example: `"Build an API"`
+    
+    - **PUT/PATCH `/projects/{project}`**  
+  Description: Update an existing project by its ID. Only the provided fields will be updated.
+
+  Path parameters:
+  - `{project}`: The numeric ID of the project.  
+    Example: `/projects/123`
+    
+- **DELETE `/projects/{project}`**  
+  Description: Delete a project by its ID.
+
+  Path parameters:
+  - `{project}`: The numeric ID of the project to delete.  
+    Example: `/projects/123`
+
+  Response:
+  - Returns a success message or status code (e.g. `204 No Content`) if the deletion is successful.
+  - Returns an error if the project does not exist or cannot be deleted.
+\
