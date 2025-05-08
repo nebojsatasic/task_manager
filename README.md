@@ -44,7 +44,8 @@ Authenticate a user and return an access token for future requests.
 - `email` – string (valid email format), required
 - `password` – string (min 6 characters), required
 
-**Example Request:** `POST https://project-manager.nebojsatasic.com/api/login`
+**Example Request:**  
+`POST https://project-manager.nebojsatasic.com/api/login`
 
 **Request Body:**
 ```json
