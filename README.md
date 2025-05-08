@@ -68,3 +68,19 @@ All routes below require a valid Bearer token in the `Authorization` header.
 
 **Example Header:** `Authorization: Bearer your_access_token_here`
 
+#### `GET /projects`
+
+Retrieve a list of all projects. Optionally include related tasks, members, or both using the include query parameter.
+
+**Query Parameters:**
+- `include=tasks` – include related tasks
+- `include=members` – include project members
+- `include=tasks,members` – include both tasks and members
+
+**Example Request:** `GET https://project-manager.nebojsatasic.com/api/projects?include=tasks,members`
+
+**Response:**
+```json
+{
+}
+```
