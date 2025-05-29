@@ -510,7 +510,7 @@ Retrieves a list of all tasks of projects that the authenticated user is a membe
 }
 ```
 
-#####Sorting
+##### Sorting
 
 By default, tasks are sorted by `created_at` (newest first).
 
