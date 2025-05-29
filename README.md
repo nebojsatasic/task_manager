@@ -28,8 +28,8 @@ This is a secure RESTful API built with Laravel for managing projects and tasks.
 
 ## Technologies Used
 
-* Laravel 11 – Backend framework for API development.
-* SQLite – Lightweight relational database used for data storage.
+* Laravel 11 – Backend framework for API development
+* SQLite – Lightweight relational database used for data storage
 
 ## Endpoints
 
@@ -833,8 +833,10 @@ No license
 
 ## Author
 
-Nebojsa Tasic
-Email: [nele.tasic@gmail.com](nele.tasic@gmail.com)
+Name: Nebojsa Tasic
+
+Email: [nele.tasic@gmail.com](mailto:nele.tasic@gmail.com)
+
 Website: [https://nebojsatasic.com](https://nebojsatasic.com)
 
 Feel free to reach out if you need login details or any other information.
