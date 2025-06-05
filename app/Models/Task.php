@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 
 class Task extends Model
 {
@@ -19,7 +19,7 @@ class Task extends Model
         'title',
         'is_done',
         'creator_id',
-        'project_id'
+        'project_id',
     ];
 
     /**
@@ -29,7 +29,7 @@ class Task extends Model
      */
     protected $hidden = [
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     /**
@@ -38,13 +38,13 @@ class Task extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'is_done' => 'boolean'
+        'is_done' => 'boolean',
     ];
 
     /**
      * The "booted" method of the model.
      */
-    protected static function booted (): void
+    protected static function booted(): void
     {
         /**
          * Filtering all queries by the creator or the member of the project who must be logged in

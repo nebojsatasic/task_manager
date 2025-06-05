@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class AuthController extends Controller
 {
     /**
      * Registering a new user.
      *
-     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request)
@@ -30,25 +29,25 @@ class AuthController extends Controller
         return response()->json([
             'user' => $user,
             'access-token' => $token,
-            'token-type' => 'bearer token'
+            'token-type' => 'bearer token',
         ], 201);
     }
+
     /**
      * Logging in the user.
      *
-     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(Request $request)
     {
         $validatedData = $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
-        if (!Auth::attempt($validatedData)) {
+        if (! Auth::attempt($validatedData)) {
             return response()->json([
-                'message' => 'Invalid credentials'
+                'message' => 'Invalid credentials',
             ], 401);
         } else {
             $user = User::where('email', $validatedData['email'])->first();
@@ -56,7 +55,7 @@ class AuthController extends Controller
 
             return response()->json([
                 'access-token' => $token,
-                'token-type' => 'bearer token'
+                'token-type' => 'bearer token',
             ]);
         }
     }
@@ -71,7 +70,7 @@ class AuthController extends Controller
         auth()->user()->tokens()->delete();
 
         return [
-            'message' => 'Logged out'
+            'message' => 'Logged out',
         ];
     }
 }

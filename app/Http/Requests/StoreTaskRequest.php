@@ -31,7 +31,7 @@ class StoreTaskRequest extends FormRequest
                     ->where('creator_id', auth()->id())
             ]
             */
-            'project_id' => Rule::in(auth()->user()->memberships->pluck('id'))
+            'project_id' => Rule::in(auth()->user()->memberships->pluck('id')),
         ];
     }
 }

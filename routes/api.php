@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-Use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\TaskController;
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/user', function (Request $request) {
@@ -13,7 +13,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/projects', ProjectController::class);
-    Route::apiResource('/tasks', TaskController::class); 
+    Route::apiResource('/tasks', TaskController::class);
 });
 
 // public routes

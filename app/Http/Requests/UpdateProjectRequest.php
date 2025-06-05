@@ -22,7 +22,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'string|max:255'
+            'title' => 'string|max:255',
         ];
     }
 }

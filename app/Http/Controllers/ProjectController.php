@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-use App\Http\Resources\ProjectResource;
 use App\Http\Resources\ProjectCollection;
+use App\Http\Resources\ProjectResource;
+use App\Models\Project;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class ProjectController extends Controller
@@ -29,7 +28,7 @@ class ProjectController extends Controller
     {
         $projects = QueryBuilder::for(Project::class)
             ->allowedIncludes(['tasks', 'members'])
-        ->paginate();
+            ->paginate();
 
         return new ProjectCollection($projects);
     }
@@ -37,7 +36,6 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Project $project
      * @return \App\Http\Resources\ProjectResource
      */
     public function show(Project $project)
@@ -48,7 +46,6 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreProjectRequest $request
      * @return \App\Http\Resources\ProjectResource
      */
     public function store(StoreProjectRequest $request)
@@ -63,8 +60,6 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateProjectRequest $request
-     * @param Project $project
      * @return \App\Http\Resources\ProjectResource
      */
     public function update(UpdateProjectRequest $request, Project $project)
@@ -79,7 +74,6 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function destroy(Project $project)

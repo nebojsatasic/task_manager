@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use App\Observers\ProjectObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 #[ObservedBy([ProjectObserver::class])]
 class Project extends Model
@@ -30,8 +30,8 @@ class Project extends Model
         /**
          * Filtering all queries by the member  of the project who must be logged in.
          */
-        static::addGlobalScope('member', function(Builder $builder) {
-            //$builder->where('creator_id', auth()->id());
+        static::addGlobalScope('member', function (Builder $builder) {
+            // $builder->where('creator_id', auth()->id());
             $builder->whereRelation('members', 'user_id', auth()->id());
         });
     }

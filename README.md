@@ -71,7 +71,6 @@ php artisan key:generate
 ```bash
 touch database/database.sqlite
 ```
-
 - Update your `.env` file with the correct database connection:
 ```env
 DB_CONNECTION=sqlite

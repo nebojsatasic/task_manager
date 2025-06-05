@@ -59,7 +59,7 @@ class User extends Authenticatable
     /**
      * Get the tasks created by the user.
      *
-     *@return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tasks()
     {

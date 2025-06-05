@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Task;
-use App\Http\Resources\TaskResource;
-use App\Http\Resources\TaskCollection;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Resources\TaskCollection;
+use App\Http\Resources\TaskResource;
+use App\Models\Task;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class TaskController extends Controller
@@ -39,22 +38,20 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreTaskRequest $request
-     *@return \App\Http\Resources\TaskResource
+     * @return \App\Http\Resources\TaskResource
      */
     public function store(StoreTaskRequest $request)
     {
         $validatedData = $request->validated();
 
-    $task = auth()->user()->tasks()->create($validatedData);
+        $task = auth()->user()->tasks()->create($validatedData);
 
-    return new TaskResource($task);
+        return new TaskResource($task);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Task $task
      * @return \App\Http\Resources\TaskResource
      */
     public function show(Task $task)
@@ -65,8 +62,6 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateTaskRequest $request
-     * @param $task
      * @return \App\Http\Resources\TaskResource
      */
     public function update(UpdateTaskRequest $request, Task $task)
@@ -81,7 +76,6 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Task $task
      * @return \Illuminate\Http\Response
      */
     public function destroy(Task $task)
