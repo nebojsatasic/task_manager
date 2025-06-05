@@ -68,13 +68,15 @@ php artisan key:generate
 ### 5. Set up the SQLite database
 
 - Create the SQLite database file (this file is not included in version control):
-```bash
-touch database/database.sqlite
-```
+
+    ```bash
+    touch database/database.sqlite
+    ```
+
 - Update your `.env` file with the correct database connection:
-```env
-DB_CONNECTION=sqlite
-```
+    ```env
+    DB_CONNECTION=sqlite
+    ```
 
 ### 6. Run database migrations
 
