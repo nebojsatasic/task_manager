@@ -31,6 +31,74 @@ This is a secure RESTful API built with Laravel for managing projects and tasks.
 * Laravel 11 – Backend framework for API development
 * SQLite – Lightweight relational database used for data storage
 
+## Installation
+
+Follow these steps to run the Laravel API locally:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/nebojsatasic/task-manager.git
+cd task-manager/src
+```
+
+### 2. Install PHP dependencies
+
+```bash
+composer install
+```
+
+If you're having issues running the application (especially due to PHP version differences), you may need to update the dependencies:
+
+> ```bash
+> composer update
+> ```
+> ...to re-resolve dependencies for your environment.
+
+### 3. Set up the environment file
+
+Copy `.env.example` to `.env`
+
+### 4. Generate the application key
+
+```bash
+php artisan key:generate
+```
+
+### 5. Set up the SQLite database
+
+- Create the SQLite database file (this file is not included in version control):
+```bash
+touch database/database.sqlite
+```
+
+- Update your `.env` file with the correct database connection:
+```env
+DB_CONNECTION=sqlite
+```
+
+### 6. Run database migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. Start the local development server
+
+```bash
+php artisan serve
+```
+
+Access the API at: `http://127.0.0.1:8000`
+
+## PHP Version Compatibility
+
+This project uses **Laravel 11**, which requires **PHP 8.2 or higher**.
+
+- The app was originally developed with **PHP 8.2** and **Laravel 11**.0
+- It has been updated to **Laravel 11.45**, tested and deployed on **PHP 8.4.3**
+- **Laravel 11.45** remains compatible with **PHP 8.2**, as long as dependencies do
+
 ## Endpoints
 
 Base URL: `https://task-mng.nebojsatasic.com/api`
@@ -826,6 +894,21 @@ Retrieves all tasks assigned to the authenticated user.
   ]
 }
 ```
+
+## Deployment & CI/CD
+
+This project includes a Jenkins pipeline for automated deployment.
+
+### Highlights:
+
+- Pulls from GitHub `main` branch
+- Copies .env and SQLite DB from a secure location on the server
+- Installs Laravel with `--no-dev` and optimized autoloader
+- Sets permissions and ownership for Laravel's writable directories
+- Runs `php artisan config:cache` and `route:cache`
+- `php artisan view:cache` is commented out — not needed in API-only apps
+
+> See [`Jenkinsfile`](./Jenkinsfile) for details.
 
 ## License
 
